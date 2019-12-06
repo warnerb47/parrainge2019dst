@@ -1,0 +1,187 @@
+<div (keyup)="reinitialiser();">
+  <div class="row">
+    <div class="col-md-3">
+      <article style="margin-left: 10%;" class="wwdc">
+    <span class="spin">
+      <!-- Large Circles -->
+      <div class="large circle one"></div>
+      <div class="large circle two"></div>
+      <div class="large circle three"></div>
+      <div class="large circle four"></div>
+      <div class="large circle five"></div>
+      <div class="large circle six"></div>
+      <div class="large circle seven"></div>
+      <div class="large circle eight"></div>
+    </span>
+        <span class="pulse">
+      <!-- Small Shapes -->
+      <div class="small circle one"></div>
+      <div class="small squircle two"></div>
+      <div class="small circle three"></div>
+      <div class="small squircle four"></div>
+      <div class="small circle five"></div>
+      <div class="small squircle six"></div>
+      <div class="small circle seven"></div>
+      <div class="small squircle eight"></div>
+    </span>
+        <!-- Squircles -->
+        <span class="spin-reverse">
+        <div class="large squircle one"></div>
+      </span>
+        <div class="large squircle two">
+          <div  *ngIf="showFinalImage2==true" class="content">
+            <img [ngClass]="{finalImage: true, zoom: false}" src={{selected2.photo}} alt="">
+            <h1 style="color: white; font-weight: 900;">{{selected2.prenom}} {{selected2.nom}}</h1>
+            <h2 style="color: white; font-weight: 900;">{{(selected2.formation=="DISTI")? "DSTI" : "DSTTR"}} {{selected2.niveau}}</h2>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="col-md-6">
+      <div id="container" class="centered">
+        <div class="stage">
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+        </div>
+        <!--<button *ngIf="true" class="spin" (click)="clickTheClick();">.</button>-->
+        <br><br>
+        <div class="outcome">
+          <i class="fa" id="outcome-icon"></i><h2 id="outcome-name"></h2>
+        </div>
+        <div class="wheelContainer">
+          <div [ngClass]="{pointerMove: (cliked==true && round2==false), pointerMove2: (cliked==true && round2==true), pointer:true}">
+            <div class="wrapper">
+              <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+              <img [ngClass]="{moveSelectedImage: (cliked==true && round2==false), moveSelectedImage2: (cliked==true && round2==true), hiddenSelectedImage: cliked==false}" src={{selected.photo}} alt="" style="width:100px; height: 100px; border-radius: 100%;">
+            </div>
+          </div>
+          <div [ngClass]="{gameWheel:true, makeAnimation: cliked==true}">
+            <div class="slice slice1" id="rock" data-outcome="Rock">
+              <img *ngIf="cliked==true && tof2" src={{tof2.photo}} alt="" style="width:100px; height: 100px; border-radius: 100%;">
+              <img *ngIf="cliked==true && !tof2" src="assets/images/content_etudiant-universitaires.png" alt="" style="width:100px; height: 100px; border-radius: 100%;">
+              <img *ngIf="cliked==false" src="assets/images/content_etudiant-universitaires.png" alt="" style="width:100px; height: 100px; border-radius: 100%;">
+            </div>
+            <div class="slice slice2" id="paper" data-outcome="Paper">
+              <img *ngIf="cliked==true && tof3" src={{tof3.photo}} alt="" style="width:100px; height: 100px; border-radius: 100%;">
+              <img *ngIf="cliked==true && !tof3" src="assets/images/content_etudiant-universitaires.png" alt="" style="width:100px; height: 100px; border-radius: 100%;">
+              <img *ngIf="cliked==false" src="assets/images/content_etudiant-universitaires.png" alt="" style="width:100px; height: 100px; border-radius: 100%;">
+            </div>
+            <div class="slice slice3" id="scissors" data-outcome="Scissors">
+              <img *ngIf="cliked==true && tof4" src={{tof4.photo}} alt="" style="width:100px; height: 100px; border-radius: 100%;">
+              <img *ngIf="cliked==true && !tof4" src="assets/images/content_etudiant-universitaires.png" alt="" style="width:100px; height: 100px; border-radius: 100%;">
+              <img *ngIf="cliked==false" src="assets/images/content_etudiant-universitaires.png" alt="" style="width:100px; height: 100px; border-radius: 100%;">
+            </div>
+            <div *ngIf="finAnime1==true || finAnime2==true" style="z-index: 99; position: absolute; " class="slice slice4" id="lizard" data-outcome="Lizard">
+              <img *ngIf="cliked==true && selected && selected.photo" src={{selected.photo}} alt="" style="width:100px; height: 100px; border-radius: 100%;">
+              <img *ngIf="cliked==true && !selected.photo" src="assets/images/content_etudiant-universitaires.png" alt="" style="width:100px; height: 100px; border-radius: 100%;">
+              <img *ngIf="cliked==false" src="assets/images/content_etudiant-universitaires.png" alt="" style="width:100px; height: 100px; border-radius: 100%;">
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="center">
+            <svg version="1.1" x="0px" y="0px" width="106px"
+                       height="106px" viewBox="0 0 206 206" enable-background="new 0 0 206
+              206" xml:space="preserve">
+
+              <g id="BigCube">
+                      <polygon fill="#BFE5E5" points="16.402,53.002 16.402,53.002
+              103.002,103.001 189.604,53.002 103.002,3.002    "/>
+                      <polygon fill="#00B0F0" points="103.002,103.001 103.002,203
+              103.002,203.001 189.604,153.001 189.604,53.002 103.002,103.001  "/>
+                      <polygon fill="#0083CA" points="16.4,53.002 16.402,153.001
+              103.002,203.001 103.002,203 103.002,103.001 103.002,103.001
+                              16.402,53.002 16.402,53.002     "/>
+              </g>
+              <g id="LittleCube">
+                      <polygon fill="#BFE5E5" points="146.301,128.001 146.301,128.001
+              103,103.001 59.7,128.001 103,153.001    "/>
+                      <polygon fill="#00B0F0" points="103.002,103.001 103.002,53.002
+              103,53.002 59.7,78.002 59.7,128.001 103,103.001         "/>
+                      <polygon fill="#0083CA" points="146.303,128.001 146.301,78.002
+              103,53.002 103.002,53.002 103.002,103.001 103,103.001
+                              146.301,128.001 146.301,128.001         "/>
+              </g>
+              <g id="SecretCube">
+                      <polygon fill="#BFE5E5" points="146.301,128.001 146.301,128.001
+              103,103.001 59.7,128.001 103,153.001    "/>
+                      <polygon fill="#00B0F0" points="103.002,103.001 103.002,53.002
+              103,53.002 59.7,78.002 59.7,128.001 103,103.001         "/>
+                      <polygon fill="#0083CA" points="146.303,128.001 146.301,78.002
+              103,53.002 103.002,53.002 103.002,103.001 103,103.001
+                              146.301,128.001 146.301,128.001         "/>
+              </g>
+              </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <article class="wwdc">
+    <span class="spin">
+      <!-- Large Circles -->
+      <div class="large circle one"></div>
+      <div class="large circle two"></div>
+      <div class="large circle three"></div>
+      <div class="large circle four"></div>
+      <div class="large circle five"></div>
+      <div class="large circle six"></div>
+      <div class="large circle seven"></div>
+      <div class="large circle eight"></div>
+    </span>
+        <span class="pulse">
+      <!-- Small Shapes -->
+      <div class="small circle one"></div>
+      <div class="small squircle two"></div>
+      <div class="small circle three"></div>
+      <div class="small squircle four"></div>
+      <div class="small circle five"></div>
+      <div class="small squircle six"></div>
+      <div class="small circle seven"></div>
+      <div class="small squircle eight"></div>
+    </span>
+        <!-- Squircles -->
+        <span class="spin-reverse">
+        <div class="large squircle one"></div>
+      </span>
+        <div class="large squircle two">
+          <div  *ngIf="showFinalImage1==true" class="content">
+            <img [ngClass]="{finalImage: true}" src={{selected1.photo}} alt="">
+            <h1 style="color: white; font-weight: 900;">{{selected1.prenom}} {{selected1.nom}}</h1>
+            <h2 style="color: white; font-weight: 900;">{{(selected1.formation=="DISTI")? "DSTI" : "DSTTR"}} {{selected1.niveau}}</h2>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+  <canvas id="c"></canvas>
+</div>
+
+<div class="footer">
+  <h1>&copy; 2018 by Warner & Killer</h1>
+</div>

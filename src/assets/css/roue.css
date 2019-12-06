@@ -1,0 +1,198 @@
+
+.wheelContainer, .gameWheel {
+  position: relative;
+}
+
+.wheelContainer {
+  display: inline-block;
+  margin: 30px auto;
+}
+
+.gameWheel {
+  height: 450px;
+  width: 450px;
+  border: 10px solid #262626;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #262626;
+  opacity: 0.9;
+}
+
+@keyframes movePointer {
+  from {
+    position: absolute;
+    left: 1.5em;
+    top: 8.2em;
+    z-index: 9;
+    width: 200px;
+  }
+  to {
+    position: absolute;
+    left: 43em;
+    top: -12em;
+    z-index: 9;
+    width: 400px;
+  }
+}
+
+@keyframes movePointer2 {
+  from {
+    position: absolute;
+    left: 1.5em;
+    top: 8.2em;
+    z-index: 9;
+    width: 200px;
+  }
+  to {
+    position: absolute;
+    left: -36em;
+    top: -12em;
+    z-index: 9;
+    width: 400px;
+  }
+}
+
+.pointer {
+  position: absolute;
+  left: 1.5em;
+  top: 8.2em;
+  z-index: 1;
+  width: 200px;
+}
+
+.pointerMove{
+  animation-delay: 15s;
+  animation-duration: 5s;
+  animation-name: movePointer;
+}
+.pointerMove2{
+  animation-delay: 15s;
+  animation-duration: 5s;
+  animation-name: movePointer2;
+}
+@keyframes animeRoue {
+  from {transform:rotate(0deg);}
+  10% {transform:rotate(8000deg);}
+  to {transform:rotate(0deg);}
+}
+
+.makeAnimation{
+  animation-duration: 5s;
+  animation-name: animeRoue;
+}
+
+.gameWheel .slice {
+  width: 225px;
+  height: 225px;
+  position: absolute;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  font-size: 80px;
+}
+
+.slice:nth-child(even) {
+  background: transparent;
+  color: transparent;
+}
+
+.slice:nth-child(odd) {
+  background: transparent;
+  color: transparent;
+}
+
+.slice1 {
+  right: 0;
+}
+
+.slice2 {
+  right: 0;
+  bottom: 0;
+}
+
+.slice3 {
+  bottom: 0;
+}
+
+.slice4 {
+  top: 0;
+  left: 0;
+}
+
+.slice i {
+  position: relative;
+}
+
+.slice1 i, .slice4 i {
+  top: 10%;
+}
+
+.slice2 i, .slice3 i {
+  top: -10%;
+}
+
+#rock h2 {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#paper h2 {
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+#scissors h2 {
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+
+#lizard h2 {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.outcome {
+  width: 60%;
+  margin: 20px auto 0;
+  font-size: 60px;
+}
+.outcome h2 {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.gameWheel .selected {
+  background: #ffc700;
+  color: #000;
+}
+
+button.spin {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 15px;
+  width: 150px;
+  box-shadow: none;
+  border: none;
+  border-radius: 10px;
+  background: #262626;
+  font-size: 24px;
+  color: #fff;
+}
+button.spin:hover {
+  cursor: pointer;
+}
