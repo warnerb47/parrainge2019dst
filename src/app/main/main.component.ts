@@ -35,7 +35,6 @@ export class MainComponent implements OnInit {
   ngOnInit() {
    this.getFilleuls();
    this.getParrains();
-   console.log(this.activeEtudiants);
   }
   
   cliked= false;
@@ -84,7 +83,6 @@ selected2= {
 
   parrains = [];
   filleuls=[];
-  activeEtudiants = [];
 
   couple = [];
   fin = false;
@@ -99,7 +97,7 @@ selected2= {
           this.finAnime1 = false;
           this.selected['type'] = 'image_file';
           //console.log("selected = "+JSON.stringify(this.selected));
-        }, 15000);
+        }, 12000);
 
         setTimeout(() => {
           this.showFinalImage1 = true;
@@ -114,12 +112,12 @@ selected2= {
               this.reinitialiser();
             }
           }
-        }, 20000);
+        }, 17000);
 
         if(this.automatique==true){
           setTimeout(() => {
             this.clickTheClick();
-          }, 22000);
+          }, 19000);
         }
 
       }
@@ -129,7 +127,7 @@ selected2= {
           this.finAnime2 = false;
           this.selected['type'] = 'image_file';
           //this.sendMessage(JSON.stringify(this.selected));
-        }, 15000);
+        }, 12000);
 
         setTimeout(() => {
           this.showFinalImage2 = true;
@@ -142,27 +140,12 @@ selected2= {
     }
   }
 
-  desactiveEtudiant(etudiant, data){
-    if (etudiant === 'Filleuls') {
-      let index = this.filleuls.indexOf(data);
-      //this.filleuls[index].actif = !this.filleuls[index].actif;
-      this.filleuls.splice(index, 1);
-    }
-    /*
-    if (etudiant === 'Parrains') {
-      let index = this.parrains.indexOf(data);
-      this.parrains[index].actif = !this.parrains[index].actif;
-    }
-    */   
-  }
-
   findOne(myRound, etudiants){
     if (etudiants === 'Filleuls') {
       const index = Math.floor(Math.random() * this.filleuls.length);
       this.selected = this.filleuls[index];
       this.tel_p = this.selected.tel_p;
       if (this.filleuls[index].image_file=== 'default.png') {
-        console.log('default.png');
         this.selected.image_file = '../assets/images/default.png';
       }
       this.filleuls.splice(index,1);
@@ -177,7 +160,6 @@ selected2= {
         while (index2 == index);
         this.tof3 = this.filleuls[index2];
         if (this.tof3.image_file=== 'default.png') {
-          console.log('default.png');
           this.tof3.image_file = '../assets/images/default.png';
         }       
       }
@@ -188,7 +170,6 @@ selected2= {
         while (index3 == index || index3 == index2);
         this.tof2 = this.filleuls[index3];
         if (this.tof2.image_file=== 'default.png') {
-          console.log('default.png');
           this.tof2.image_file = '../assets/images/default.png';
         }        
       }
@@ -199,7 +180,6 @@ selected2= {
         while (index4 == index || index4 == index2 || index4 == index3);
         this.tof4 = this.filleuls[index4];
         if (this.tof4.image_file=== 'default.png') {
-          console.log('default.png');
           this.tof4.image_file = '../assets/images/default.png';
         }        
       }
@@ -215,7 +195,6 @@ selected2= {
         }
       });
       if (this.selected.image_file=== 'default.png') {
-        console.log('default.png');
         this.selected.image_file = '../assets/images/default.png';
       }
       let index2;
@@ -228,7 +207,6 @@ selected2= {
         while (index2 == index);
         this.tof3 = this.parrains[index2];
         if (this.tof3.image_file=== 'default.png') {
-          console.log('default.png');
           this.tof3.image_file = '../assets/images/default.png';
         }        
       }
@@ -239,7 +217,6 @@ selected2= {
         while (index3 == index || index3 == index2);
         this.tof2 = this.parrains[index3];
         if (this.tof2.image_file=== 'default.png') {
-          console.log('default.png');
           this.tof2.image_file = '../assets/images/default.png';
         }        
       }
@@ -250,7 +227,6 @@ selected2= {
         while (index4 == index || index4 == index2 || index4 == index3);
         this.tof4 = this.parrains[index4];
         if (this.tof4.image_file=== 'default.png') {
-          console.log('default.png');
           this.tof4.image_file = '../assets/images/default.png';
         }        
       }
@@ -263,15 +239,15 @@ selected2= {
           
           if (myRound === 'second') {
             this.selected2 = this.selected;
-            console.log("selected2",this.selected2);
-            console.log("selected1",this.selected1);  
+            //console.log("selected2",this.selected2);
+            //console.log("selected1",this.selected1);  
           }
 
           if (this.filleuls.length <= 0) {
             alert('Parrainage bouclé !');
             this.automatique = false;
             this.reinitialiser();
-            console.log(this.couple)
+            //console.log(this.couple)
           }
 
   }
@@ -281,7 +257,7 @@ selected2= {
       'filleul': filleul,
       'parrain': parrain
     };
-    console.log('new couple =>',newCouple);
+    //console.log('new couple =>',newCouple);
     this.couple.push(newCouple);
 
     if(this.automatique){
@@ -364,7 +340,6 @@ selected2= {
     });
   }).then(()=>{
       //console.log(this.filleuls);
-      this.activeEtudiants = [...this.filleuls];
   });
 
   this.dataService.get('dsttr1.json')
@@ -380,7 +355,6 @@ selected2= {
         image_file: filleul[6],
       };
       this.filleuls.push(jsonFilleul);
-      this.activeEtudiants.push(jsonFilleul);
     });
   }).then(()=>{
       //console.log(this.filleuls);
@@ -400,7 +374,6 @@ selected2= {
         image_file: parrain[5]
       };
       this.parrains.push(jsonParrain);
-      this.activeEtudiants.push(jsonParrain);
     });
   }).then(()=>{
       //console.log(this.parrains);
@@ -418,11 +391,9 @@ selected2= {
         image_file: parrain[5]
       };
       this.parrains.push(jsonParrain);
-      this.activeEtudiants.push(jsonParrain);
     });
   }).then(()=>{
       //console.log(this.parrains);
-      console.log(this.activeEtudiants);
   });    
  }
  

@@ -306,7 +306,7 @@
     left: 3.4em;
     z-index: 3;
     animation-delay: 15s;
-    animation-duration: 5s;
+    animation-duration: 3s;
     animation-name: moveImage;
   }
   .moveSelectedImage2{
@@ -316,7 +316,7 @@
     left: -3.4em;
     z-index: 3;
     animation-delay: 15s;
-    animation-duration: 5s;
+    animation-duration: 3s;
     animation-name: moveImage2;
   }
   .hiddenSelectedImage{
@@ -363,7 +363,7 @@
   .zoom{
     width:400px;
     height: 400px;
-    animation-duration: 5s;
+    animation-duration: 4s;
     animation-name: makeZoom;
   }
   
