@@ -7,12 +7,20 @@ import { reject } from 'q';
 })
 export class DataService {
 
-  baseUrl = 'http://127.0.0.1:5002/';
+  //baseUrl = 'http://127.0.0.1:5002/';
+  baseUrl = 'assets/json/';
   
   constructor(private httpClient: HttpClient) { }
 
   get(url) {
-    return this.httpClient.get(this.baseUrl + url);
+    return new Promise((resolve, reject)=>{
+      this.httpClient.get(this.baseUrl+url)
+      .subscribe((data:any)=>{
+        resolve(data.values);
+      },
+      (error)=>{reject(error);
+      });
+    }); 
   }
 
   delete(url, id){

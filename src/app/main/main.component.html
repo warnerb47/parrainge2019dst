@@ -30,9 +30,10 @@
       </span>
         <div class="large squircle two">
           <div  *ngIf="showFinalImage2==true" class="content">
-            <img [ngClass]="{finalImage: true, zoom: false}" src={{selected2.photo}} alt="">
+            <img [ngClass]="{finalImage: true, zoom: false}" src={{selected2.image_file}} alt="">
             <h1 style="color: white; font-weight: 900;">{{selected2.prenom}} {{selected2.nom}}</h1>
-            <h2 style="color: white; font-weight: 900;">{{(selected2.formation=="DISTI")? "DSTI" : "DSTTR"}} {{selected2.niveau}}</h2>
+            <!--<h2 style="color: white; font-weight: 900;">{{(selected2.formation=="DISTI")? "DSTI" : "DSTTR"}} {{selected2.niveau}}</h2>-->
+            <h2 style="color: white; font-weight: 900;"> {{selected2.formation}}</h2>
           </div>
         </div>
       </article>
@@ -77,28 +78,28 @@
                 <div></div>
                 <div></div>
               </div>
-              <img [ngClass]="{moveSelectedImage: (cliked==true && round2==false), moveSelectedImage2: (cliked==true && round2==true), hiddenSelectedImage: cliked==false}" src={{selected.photo}} alt="" style="width:100px; height: 100px; border-radius: 100%;">
+              <img [ngClass]="{moveSelectedImage: (cliked==true && round2==false), moveSelectedImage2: (cliked==true && round2==true), hiddenSelectedImage: cliked==false}" src={{selected.image_file}} alt="" style="width:100px; height: 100px; border-radius: 100%;">
             </div>
           </div>
           <div [ngClass]="{gameWheel:true, makeAnimation: cliked==true}">
             <div class="slice slice1" id="rock" data-outcome="Rock">
-              <img *ngIf="cliked==true && tof2" src={{tof2.photo}} alt="" style="width:100px; height: 100px; border-radius: 100%;">
+              <img *ngIf="cliked==true && tof2" src={{tof2.image_file}} alt="" style="width:100px; height: 100px; border-radius: 100%;">
               <img *ngIf="cliked==true && !tof2" src="assets/images/content_etudiant-universitaires.png" alt="" style="width:100px; height: 100px; border-radius: 100%;">
               <img *ngIf="cliked==false" src="assets/images/content_etudiant-universitaires.png" alt="" style="width:100px; height: 100px; border-radius: 100%;">
             </div>
             <div class="slice slice2" id="paper" data-outcome="Paper">
-              <img *ngIf="cliked==true && tof3" src={{tof3.photo}} alt="" style="width:100px; height: 100px; border-radius: 100%;">
+              <img *ngIf="cliked==true && tof3" src={{tof3.image_file}} alt="" style="width:100px; height: 100px; border-radius: 100%;">
               <img *ngIf="cliked==true && !tof3" src="assets/images/content_etudiant-universitaires.png" alt="" style="width:100px; height: 100px; border-radius: 100%;">
               <img *ngIf="cliked==false" src="assets/images/content_etudiant-universitaires.png" alt="" style="width:100px; height: 100px; border-radius: 100%;">
             </div>
             <div class="slice slice3" id="scissors" data-outcome="Scissors">
-              <img *ngIf="cliked==true && tof4" src={{tof4.photo}} alt="" style="width:100px; height: 100px; border-radius: 100%;">
+              <img *ngIf="cliked==true && tof4" src={{tof4.image_file}} alt="" style="width:100px; height: 100px; border-radius: 100%;">
               <img *ngIf="cliked==true && !tof4" src="assets/images/content_etudiant-universitaires.png" alt="" style="width:100px; height: 100px; border-radius: 100%;">
               <img *ngIf="cliked==false" src="assets/images/content_etudiant-universitaires.png" alt="" style="width:100px; height: 100px; border-radius: 100%;">
             </div>
             <div *ngIf="finAnime1==true || finAnime2==true" style="z-index: 99; position: absolute; " class="slice slice4" id="lizard" data-outcome="Lizard">
-              <img *ngIf="cliked==true && selected && selected.photo" src={{selected.photo}} alt="" style="width:100px; height: 100px; border-radius: 100%;">
-              <img *ngIf="cliked==true && !selected.photo" src="assets/images/content_etudiant-universitaires.png" alt="" style="width:100px; height: 100px; border-radius: 100%;">
+              <img *ngIf="cliked==true && selected && selected.image_file" src={{selected.image_file}} alt="" style="width:100px; height: 100px; border-radius: 100%;">
+              <img *ngIf="cliked==true && !selected.image_file" src="assets/images/content_etudiant-universitaires.png" alt="" style="width:100px; height: 100px; border-radius: 100%;">
               <img *ngIf="cliked==false" src="assets/images/content_etudiant-universitaires.png" alt="" style="width:100px; height: 100px; border-radius: 100%;">
             </div>
           </div>
@@ -171,9 +172,10 @@
       </span>
         <div class="large squircle two">
           <div  *ngIf="showFinalImage1==true" class="content">
-            <img [ngClass]="{finalImage: true}" src={{selected1.photo}} alt="">
+            <img [ngClass]="{finalImage: true}" src={{selected1.image_file}} alt="">
             <h1 style="color: white; font-weight: 900;">{{selected1.prenom}} {{selected1.nom}}</h1>
-            <h2 style="color: white; font-weight: 900;">{{(selected1.formation=="DISTI")? "DSTI" : "DSTTR"}} {{selected1.niveau}}</h2>
+            <!--<h2 style="color: white; font-weight: 900;">{{(selected1.formation=="DISTI")? "DSTI" : "DSTTR"}} {{selected1.niveau}}</h2>-->
+            <h2 style="color: white; font-weight: 900;">{{selected1.formation}}</h2>
           </div>
         </div>
       </article>
